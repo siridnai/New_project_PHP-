@@ -7,20 +7,21 @@
     <title>Test 01</title>
 </head>
 <body>
-    <section>
-        <div class="connection">
-            <?php 
-                $sql = "SELECT * FROM รายการอาหาร";
-                $result = mysqli_query($connection,$sql);
-                $rows = mysqli_fetch_all($result , MYSQLI_ASSOC);
-                var_dump($row);
-            ?>
-            <?php foreach($rows as $row): ?>
+    <div>
+        <?php 
+            $sql = "SELECT * FROM รายการอาหาร";
+            $result = mysqli_query($connection,$sql);
+            $rows = mysqli_fetch_all($result , MYSQLI_ASSOC);
+        ?>
+        <h1>พบสีจำนวน <?php echo count($rows) ?> รายการ</h1>
+        <?php foreach($rows as $row): ?>
+            <div>
                 <h1> <?php echo $row["title"]?></h1>
                 <h2> <?php echo $row["price"]?></h2>
-            <?php endforeach ?>
-        </div>
-    </section>
-    
+            </div>
+        <?php endforeach ?>
+    </div>
 </body>
 </html>
+
+<?php mysqli_close($connection);
