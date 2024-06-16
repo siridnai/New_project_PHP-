@@ -13,6 +13,12 @@
             $result = mysqli_query($connection,$sql);
             $rows = mysqli_fetch_all($result , MYSQLI_ASSOC);
         ?>
+        <form>
+            <p>
+            <input type="search" name ="search">
+            <button type="submit">ค้นหา</button>
+            </p>
+        </form>
         <h1>พบสีจำนวน <?php echo count($rows) ?> รายการ</h1>
         <?php foreach($rows as $row): ?>
             <div>
