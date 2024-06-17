@@ -9,7 +9,8 @@
 <body>
     <div>
         <?php 
-            $sql = "SELECT * FROM รายการอาหาร";
+            $search = $_GET["search"];
+            $sql = "SELECT * FROM รายการอาหาร WHERE title LIKE '%$search%'ORDER BY ID DESC";
             $result = mysqli_query($connection,$sql);
             $rows = mysqli_fetch_all($result , MYSQLI_ASSOC);
         ?>
